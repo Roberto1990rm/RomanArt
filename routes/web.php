@@ -5,6 +5,8 @@ use App\Http\Controllers\ArtworkController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+Route::get('/', [ArtworkController::class, 'showWelcome'])->name('welcome');
+
 
 // Ruta para mostrar el formulario de creación de Artwork
 Route::get('/artworks/create', [ArtworkController::class, 'create'])->name('artworks.create');
@@ -17,3 +19,5 @@ Route::get('/artworks', [ArtworkController::class, 'index'])->name('artworks.ind
 
 // Otras rutas para Artwork si es necesario
 Route::resource('artworks', ArtworkController::class)->except(['create', 'store', 'index']);
+
+

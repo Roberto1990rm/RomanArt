@@ -15,41 +15,52 @@ class ArtworkController extends Controller
 
     // Almacenar un nuevo Artwork
     public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'required|file|image|max:2048',
-            'image1' => 'nullable|file|image|max:2048',
-            'image2' => 'nullable|file|image|max:2048',
-            'image3' => 'nullable|file|image|max:2048',
-            'image4' => 'nullable|file|image|max:2048',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric',
-            'dimensions' => 'nullable|string',
-        ]);
+{
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'description' => 'nullable|string',
+        'price' => 'required|numeric',
+        'dimensions' => 'nullable|string',
+        'status' => 'required|in:for_sale,sold',
+    ]);
 
-        // Subir las imágenes
+    $artwork = new Artwork();
+    $artwork->title = $validated['title'];
+    $artwork->description = $validated['description'];
+    $artwork->price = $validated['price'];
+    $artwork->dimensions = $validated['dimensions'];
+
+    if ($request->hasFile('image')) {
         $path = $request->file('image')->store('public/images');
-        $path1 = $request->file('image1') ? $request->file('image1')->store('public/images') : null;
-        $path2 = $request->file('image2') ? $request->file('image2')->store('public/images') : null;
-        $path3 = $request->file('image3') ? $request->file('image3')->store('public/images') : null;
-        $path4 = $request->file('image4') ? $request->file('image4')->store('public/images') : null;
-
-        // Crear el Artwork
-        Artwork::create([
-            'title' => $validated['title'],
-            'image' => $path,
-            'image1' => $path1,
-            'image2' => $path2,
-            'image3' => $path3,
-            'image4' => $path4,
-            'description' => $validated['description'],
-            'price' => $validated['price'],
-            'dimensions' => $validated['dimensions'],
-        ]);
-
-        return redirect()->route('artworks.index')->with('success', 'Artwork created successfully.');
+        $artwork->image = $path;
     }
+    if ($request->hasFile('image1')) {
+        $path1 = $request->file('image1')->store('public/images');
+        $artwork->image1 = $path1;
+    }
+    if ($request->hasFile('image2')) {
+        $path2 = $request->file('image2')->store('public/images');
+        $artwork->image2 = $path2;
+    }
+    if ($request->hasFile('image3')) {
+        $path3 = $request->file('image3')->store('public/images');
+        $artwork->image3 = $path3;
+    }
+    if ($request->hasFile('image4')) {
+        $path4 = $request->file('image4')->store('public/images');
+        $artwork->image4 = $path4;
+    }
+
+    $artwork->save();
+
+    return redirect()->route('artworks.index')->with('success', 'Artwork created successfully.');
+}
+
 
 
     public function index()
@@ -57,4 +68,11 @@ class ArtworkController extends Controller
         $artworks = Artwork::all();
         return view('artworks.index', compact('artworks'));
     }
+
+    public function showWelcome()
+{
+    $latestArtwork = Artwork::latest()->first();
+    return view('welcome', compact('latestArtwork'));
+}
+
 }
