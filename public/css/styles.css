@@ -1,1 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../images/fondo.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Opcional, para que la imagen no se mueva al hacer scroll */
+}
 

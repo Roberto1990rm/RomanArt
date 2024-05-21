@@ -1,7 +1,10 @@
 /* public/css/navbar.css */
 
 .navbar {
-    background-color: #343a40;
+    background-image: url('../images/pinceles2.jpeg'); /* Asegúrate de poner el nombre correcto de tu imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el espacio disponible */
+    background-position: center; /* Centra la imagen en el elemento */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
     padding: 0.5rem 1rem;
 }
 
@@ -9,15 +12,28 @@
     font-family: 'Pacifico', cursive;
     font-size: 2rem;
     transition: color 0.3s;
+    
 }
 
 .brand-word-1 {
-    color: #ff4081; /* Color para "Román" */
+    color: #fe4ce6; /* Color para "Román" */
+    text-shadow: 4px 4px 6px rgba(12, 12, 12, 0.5); /* Sombra negra con transparencia media */
+    -webkit-text-stroke: 0.5px black; /* Grosor y color del contorno para navegadores WebKit */
+    letter-spacing: 2px; 
+    font-weight: bold;
 }
 
 .brand-word-2 {
-    color: #00bcd4; /* Color para "Art" */
+    color: #7deaec; /* Color para "Art" */
+    text-shadow: 4px 4px 6px rgb(255, 255, 255); /* Sombra negra con transparencia media */
+    -webkit-text-stroke: 0.5px black; /* Grosor y color del contorno para navegadores WebKit */
+    letter-spacing: 2px; 
+    font-weight: bold;
 }
+
+
+
+
 
 .navbar-brand:hover {
     color: #fff !important;
@@ -31,7 +47,7 @@
     border-radius: 5px;
     display: inline-block;
     text-align: center;
-    width: 100px; /* Ajusta el ancho según sea necesario */
+    width: 120px; /* Ancho fijo para todos los enlaces */
 }
 
 /* Colores específicos para cada enlace */
@@ -51,21 +67,116 @@
     background-color: #00bcd4;
 }
 
-.navbar-nav .nav-link:hover {
-    color: #343a40 !important;
-    background-color: #fff !important;
+.navbar-nav .nav-link-1:hover {
+    background-color: #ff2057; /* Un tono más brillante y vivo */
 }
 
-.navbar-toggler-icon {
-    border: 2px solid rgb(226, 226, 98); /* Borde amarillo */
+.navbar-nav .nav-link-2:hover {
+    background-color: #ff7518; /* Un tono más brillante y vivo */
 }
+
+.navbar-nav .nav-link-3:hover {
+    background-color: #9fdf60; /* Un tono más brillante y vivo */
+}
+
+.navbar-nav .nav-link-4:hover {
+    background-color: #26c6da; /* Un tono más brillante y vivo */
+}
+
+.navbar-nav .nav-link:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Agrega una sombra ligera para más profundidad */
+}
+
+
+.navbar-nav .nav-link-1:active {
+    background-color: #e63069; /* Un tono más oscuro para active */
+}
+
+.navbar-nav .nav-link-2:active {
+    background-color: #e56b00; /* Un tono más oscuro para active */
+}
+
+.navbar-nav .nav-link-3:active {
+    background-color: #74a42e; /* Un tono más oscuro para active */
+}
+
+.navbar-nav .nav-link-4:active {
+    background-color: #008ba3; /* Un tono más oscuro para active */
+}
+
+
+
+.navbar-nav .nav-link {
+    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo */
+}
+
+
+.custom-toggler {
+    background-color: #b0c4de; /* Gris azulado claro */
+    border: 2px solid #8a9ab5; /* Borde más oscuro para contraste */
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 25px; /* Botón redondo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.custom-toggler-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    position: relative; /* Asegura que los pseudo-elementos estén posicionados relativamente a este */
+    transition: transform 0.3s ease; /* Transición para la transformación de las líneas */
+}
+
+.custom-toggler-icon::before, .custom-toggler-icon::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    left: 0;
+    transition: transform 0.3s ease; /* Transición consistente en los pseudo-elementos */
+}
+
+.custom-toggler-icon::before {
+    top: -10px;
+}
+
+.custom-toggler-icon::after {
+    bottom: -10px;
+}
+
+.custom-toggler:hover, .custom-toggler:focus {
+    background-color: #9fb6cd; /* Un tono más oscuro al interactuar */
+}
+
+/* Estilo cuando el toggle está activo */
+.custom-toggler.active .custom-toggler-icon {
+    transform: rotate(135deg); /* Rota la línea central */
+}
+
+.custom-toggler.active .custom-toggler-icon::before {
+    transform: translateY(10px) rotate(0deg); /* Mueve y rota la línea superior para alinearla en el centro */
+}
+
+.custom-toggler.active ..custom-toggler-icon::after {
+    transform: translateY(-10px) rotate(0deg); /* Mueve y rota la línea inferior para alinearla en el centro */
+}
+
 
 
 
 /* Estilo para el desplegable */
 @media (max-width: 992px) {
     .navbar-nav .nav-link {
-        width: 100%; /* Ancho completo en el desplegable */
+        width: 120px; /* Ancho fijo para todos los enlaces en el desplegable */
+        margin: 0 auto; /* Centra los enlaces dentro de la barra de navegación */
+        padding: 0.5rem 1rem;
     }
 
     .navbar-nav .nav-item {
@@ -73,3 +184,4 @@
         padding: 0.5rem 0; /* Espaciado uniforme */
     }
 }
+ 
