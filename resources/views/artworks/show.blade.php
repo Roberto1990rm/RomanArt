@@ -12,8 +12,7 @@
             <p class="card-text">{{ $artwork->description }}</p>
             <p class="card-text"><strong>Price:</strong> ${{ $artwork->price }}</p>
             <p class="card-text"><strong>Dimensions:</strong> {{ $artwork->dimensions }}</p>
-            <p class="card-text"><strong>Status:</strong> {{ ucfirst($artwork->status) }}</p>
-            <a href="{{ route('artworks.index') }}" class="btn btn-primary">Back to Gallery</a>
+            <a href="{{ route('artworks.index') }}" class="btn btn-primary mb-1">Back to Gallery</a>
         </div>
     </div>
 </div>
