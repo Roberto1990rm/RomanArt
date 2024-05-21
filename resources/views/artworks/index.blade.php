@@ -11,33 +11,26 @@
         </div>
     @endif
     <a href="{{ route('artworks.create') }}" class="btn btn-primary mb-3">Create New Artwork</a>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($artworks as $artwork)
-                <tr>
-                    <td>{{ $artwork->title }}</td>
-                    <td>{{ $artwork->price }}</td>
-                    <td>{{ $artwork->status }}</td>
-                    <td>
-                        <a href="{{ route('artworks.show', $artwork->id) }}" class="btn btn-info">View</a>
-                        <a href="{{ route('artworks.edit', $artwork->id) }}" class="btn btn-warning">Edit</a>
-                        <form action="{{ route('artworks.destroy', $artwork->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+
+    <div class="row">
+        @foreach($artworks as $artwork)
+            <div class="col-6 mb-4"> <!-- Cambiado a col-6 -->
+                <div class="custom-card">
+                    <div class="custom-card-bg"></div>
+                    <img src="{{ Storage::url($artwork->image) }}" class="card-img-top" alt="{{ $artwork->title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $artwork->title }}</h5>
+                        <p class="card-text">
+                            {{ Str::limit($artwork->description, 50) }}
+                            <a href="{{ route('artworks.show', $artwork->id) }}" class="btn btn-link p-0 align-baseline">
+                                <i class="fas fa-arrow-right"></i> ...Ver más
+                            </a>
+                        </p>
+                        <p class="card-text"><strong>Price:</strong> ${{ $artwork->price }}</p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
 @endsection

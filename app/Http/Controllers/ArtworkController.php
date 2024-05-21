@@ -75,4 +75,16 @@ class ArtworkController extends Controller
     return view('welcome', compact('latestArtwork'));
 }
 
+public function destroy(Artwork $artwork)
+{
+    $artwork->delete();
+
+    return redirect()->route('artworks.index')->with('success', 'Artwork deleted successfully.');
+}
+
+public function show(Artwork $artwork)
+{
+    return view('artworks.show', compact('artwork'));
+}
+
 }

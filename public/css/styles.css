@@ -7,29 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la ventana */
-}
-
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-body {
-    background-image: url('../images/fondo.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; /* Opcional, para que la imagen no se mueva al hacer scroll */
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la ventana */
     background-image: url('../images/fondo.jpeg');
     background-repeat: no-repeat;
     background-size: cover; /* Asegura que la imagen cubra toda la ventana */
@@ -42,4 +19,3 @@ body {
     display: flex;
     flex-direction: column;
 }
-

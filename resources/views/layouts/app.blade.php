@@ -19,10 +19,11 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <span style="font-size: 60px;" class="brand-word-1">Román</span> 
+                <a class="navbar-brand" href="{{ route('welcome') }}">
+                    <span style="font-size: 60px;" class="brand-word-1">Román</span>
                     <span style="font-size: 35px;" class="brand-word-2">Art</span>
                 </a>
+                
                 <button class="custom-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
                     <div class="custom-toggler-icon"></div>
                 </button>
