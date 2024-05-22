@@ -11,8 +11,11 @@
                 {{ session('success') }}
             </div>
         @endif
+
+        @auth
         <a href="{{ route('artworks.create') }}" class="btn btn-primary mb-3">Create New Artwork</a>
-    
+        @endauth
+
         <div class="row">
             @foreach($artworks as $artwork)
                 <div class="col-6 mb-4"> <!-- Cambiado a col-6 -->
@@ -34,7 +37,12 @@
                     <form action="{{ route('artworks.destroy', $artwork->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
+
+
+                        @auth
                         <button type="submit" class="btn btn-danger">Delete</button>
+                        @endauth
+                        
                     </form>
                 </div>
                 
