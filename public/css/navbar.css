@@ -125,6 +125,12 @@
     transition: background-color 0.3s ease; /* Transición suave del color de fondo */
 }
 
+@media (min-width: 992px) {
+    .custom-toggler {
+        display: none; /* Ocultar el toggler en pantallas grandes */
+    }
+}
+
 .custom-toggler-icon {
     width: 30px;
     height: 3px;

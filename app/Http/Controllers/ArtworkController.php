@@ -70,12 +70,14 @@ class ArtworkController extends Controller
         $artworks = Artwork::all();
         return view('artworks.index', compact('artworks'));
     }
-
+    
     public function showWelcome()
-{
-    $latestArtwork = Artwork::latest()->first();
-    return view('welcome', compact('latestArtwork'));
-}
+    {
+        $artworks = Artwork::inRandomOrder()->take(5)->get(); // Obtén 5 obras de arte aleatorias
+        return view('welcome', compact('artworks'));
+    }
+    
+    
 
 public function destroy(Artwork $artwork)
 {
