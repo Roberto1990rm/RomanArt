@@ -24,3 +24,7 @@ Route::delete('/artworks/{artwork}', [ArtworkController::class, 'destroy'])->nam
 
 // Otras rutas para Artwork
 Route::resource('artworks', ArtworkController::class)->except(['create', 'store', 'index', 'show', 'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

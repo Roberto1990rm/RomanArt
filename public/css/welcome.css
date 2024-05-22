@@ -81,3 +81,56 @@ p {
     margin-bottom: 10px;
 }
 
+
+.scrolling-wrapper {
+    display: flex; /* Asegura que los elementos hijo se alineen en línea */
+    flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+    -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en dispositivos táctiles */
+}
+
+
+
+.card {
+    display: inline-block;
+    width: 300px;  /* Ancho fijo de cada tarjeta */
+    height: 300px; /* Altura fija de cada tarjeta */
+    margin-right: 10px;
+    animation: scroll 40s linear infinite;
+    vertical-align: top; /* Alinea todas las tarjetas correctamente */
+    overflow: hidden; /* Oculta cualquier desbordamiento dentro de la tarjeta */
+    background-color: #fff; /* Fondo blanco para mejor visibilidad */
+}
+
+
+.card-img-top {
+    width: 100%;  /* Forzar a la imagen a tomar el ancho completo de la tarjeta */
+    height: 100%; /* Forzar a la imagen a tomar la altura completa de la tarjeta */
+    object-fit: scale-down; /* Asegura que la imagen se ajuste dentro del espacio asignado, reduciéndose si es necesario pero sin recortarse */
+    display: block; /* Elimina cualquier espacio extra debajo de la imagen que pueda aparecer */
+}
+
+
+
+
+
+.card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden; /* Ajuste en caso de que el contenido exceda el espacio disponible */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para mejorar la lectura */
+    padding: 10px; /* Espaciado interno */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
