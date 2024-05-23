@@ -17,10 +17,9 @@
 
     <div class="row">
         @foreach($artworks as $artwork)
-        <div class="col-6 mb-4">
+        <div class="col-md-6 mb-4"> <!-- Cambiado a col-md-6 para mantener dos tarjetas por fila -->
             <div class="custom-card">
-                <div class="custom-card-bg"></div>
-                <img src="{{ Storage::url($artwork->image) }}" style="height: 300px;" class="card-img-top" alt="{{ $artwork->title }}">
+                <img src="{{ Storage::url($artwork->image) }}" class="card-img-top" alt="{{ $artwork->title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $artwork->title }}</h5>
                     <p class="card-text">
