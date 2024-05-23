@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtworkController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutController;
 
 
 
@@ -12,6 +13,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 
 
 

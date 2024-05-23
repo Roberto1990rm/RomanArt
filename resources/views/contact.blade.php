@@ -4,8 +4,16 @@
 
 @section('content')
 <div class="custom-contact-container mt-5">
+
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+    <div style="text-align: center;">
     <h2>Contacto</h2>
     <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+    </div>
 
     <!-- Formulario de contacto -->
     <div class="custom-contact-card">
