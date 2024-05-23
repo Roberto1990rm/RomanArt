@@ -66,10 +66,12 @@ class ArtworkController extends Controller
 
 
     public function index()
-    {
-        $artworks = Artwork::all();
-        return view('artworks.index', compact('artworks'));
-    }
+{
+    $artworks = Artwork::orderBy('created_at', 'desc')->paginate(4);
+    return view('artworks.index', compact('artworks'));
+}
+
+    
     
     public function showWelcome()
     {

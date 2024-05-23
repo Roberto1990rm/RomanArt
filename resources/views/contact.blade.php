@@ -12,7 +12,7 @@
 @endif
     <div style="text-align: center;">
     <h2>Contacto</h2>
-    <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+    <p  style="margin-left: 90px;">Si tienes alguna pregunta, no dudes en contactarnos.</p>
     </div>
 
     <!-- Formulario de contacto -->
