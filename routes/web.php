@@ -1,11 +1,19 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtworkController;
+use App\Http\Controllers\ContactController;
 
 
 
 // Ruta para la página de bienvenida
 Route::get('/', [ArtworkController::class, 'showWelcome'])->name('welcome');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+
 
 // Ruta para mostrar el formulario de creación de Artwork
 Route::get('/artworks/create', [ArtworkController::class, 'create'])->name('artworks.create');

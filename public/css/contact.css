@@ -1,0 +1,77 @@
+/* Estilos personalizados para la página de contacto */
+.custom-contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-contact-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-contact-card-body {
+    padding: 20px;
+}
+
+.custom-contact-form-group {
+    margin-bottom: 15px;
+}
+
+.custom-contact-form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.custom-contact-form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.custom-contact-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-contact-btn:hover {
+    background-color: #0056b3;
+}
+
+.custom-contact-info {
+    margin-top: 20px;
+}
+
+.custom-contact-info h4 {
+    margin-bottom: 10px;
+}
+
+.custom-contact-info p {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.custom-contact-info i {
+    margin-right: 8px;
+}
+
+.custom-contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.custom-contact-info a:hover {
+    text-decoration: underline;
+}
